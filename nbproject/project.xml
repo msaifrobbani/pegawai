@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.php.project</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/php-project/1">
+            <name>pegawai</name>
+        </data>
+        <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>Aktif</word>
+            <word>Analisis</word>
+            <word>bln</word>
+            <word>Fungsional</word>
+            <word>JABATAN</word>
+            <word>Jafung</word>
+            <word>JENIS</word>
+            <word>KELAMIN</word>
+            <word>Kepegawaian</word>
+            <word>KERJA</word>
+            <word>LAHIR</word>
+            <word>LAPORAN</word>
+            <word>LAPORANDATA</word>
+            <word>Manajemen</word>
+            <word>ManajemenUser</word>
+            <word>MASUK</word>
+            <word>Muda</word>
+            <word>NAMA</word>
+            <word>PEGAWAI</word>
+            <word>Pejabat</word>
+            <word>Penyelia</word>
+            <word>Pertama</word>
+            <word>PUPR</word>
+            <word>Sementara</word>
+            <word>TANGGAL</word>
+            <word>TEMPAT</word>
+            <word>thn</word>
+        </spellchecker-wordlist>
+    </configuration>
+</project>

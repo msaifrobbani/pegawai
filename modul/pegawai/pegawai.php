@@ -34,7 +34,7 @@ switch($_GET[act]){
             <td>Tgl Masuk</td>
             <td>Golongan/Pangkat</td>
             <td>Jabatan</td>
-            <td>Bagian</td>            
+            <td>Unit Kerja</td>            
             <td>Status Kerja</td>
             <td>Control</td>
             </tr>
@@ -99,7 +99,7 @@ switch($_GET[act]){
             <td>Tgl Masuk</td>
             <td>Golongan/Pangkat</td>
             <td>Jabatan</td>
-            <td>Bagian</td>
+            <td>Unit Kerja</td>
             <td>Status Kerja</td>
             <td>Control</td>
             </tr>

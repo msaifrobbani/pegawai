@@ -35,8 +35,8 @@ body {
 
 
 #container {
-	max-width: 1650px;
-	min-width: 1650px;
+	max-width: 1750px;
+	min-width: 1750px;
 	margin:0 auto;
 	margin-bottom:25px;
 	background:url(../images/header.png) repeat;
@@ -277,8 +277,8 @@ body {
 }
 
 #wrapper {
-	max-width: 1300px;
-	min-width: 1300px;
+	max-width: 160px;
+	min-width: 1600px;
 	margin:0 auto;
 	margin-bottom:25px;
 	-moz-border-radius: 3px;

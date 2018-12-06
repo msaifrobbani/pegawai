@@ -13,7 +13,6 @@ include "config/fungsi_nip.php";
             <h4><p>Hai <i>$_SESSION[namauser]</i>...</h4>
                 Selamat Datang di Halaman Administrator Sistem Informasi Jabatan Fungsional
                 <br>
-                <canvas id='myChart' width='800' height='600'></canvas>
                 <div>
                 
                 </div>
@@ -46,57 +45,12 @@ if ($_SESSION['leveluser']=='1'){
                         
             echo "
                 <div class='row'>
-                    <div class='col-md-6'>
+                    <div class='col-md-10' style='padding:40px; padding-left: 30px;'>
                         <div class='box box-solid box-primary'>
-                            <div class='box-header with-border'>
-                                <h3 class='box-title'>Jumlah Pegawai Berdasarkan Jabatan Fungsional</h3>
-                            </div>
-                        
                             <div class='box-body'>
                                 <div class='chart'>
-                                    <canvas id='myChart' style='height:500px'></canvas>
+                                    <div id='pegawai'></div>
                                 </div>
-                            </div>
-                        </div>
-                            <table class='tabel'>
-                                <thead>
-                                    <tr>
-                                    <td>Jafung</td>
-                                    <td>Analis Kepeg Penyelia</td>
-                                    <td>Analis Kepeg Pertama</td>
-                                    <td>Analis Kepeg Muda</td>
-                                    </tr>
-                                </thead>
-                                <tr>
-                                    <td>Aktif</td>
-                                    <td>$jafung[jafung]</td>
-                                    <td>$jafung1[jafung]</td>
-                                    <td>$jafung2[jafung]</td>
-                                </tr>
-                                <tr>
-                                    <td>Bebas Sementara</td>
-                                    <td>$bebas[jafung]</td>
-                                    <td>$bebas1[jafung]</td>
-                                    <td>$bebas2[jafung]</td>
-                                </tr>
-                            </table> <br>
-                            
-                        <div class='box box-solid box-primary'>
-                            <div class='box-header with-border'>
-                                <h3 class='box-title'>Jumlah Pegawai Berdasarkan Jabatan Fungsional 2</h3>
-                            </div>
-                        
-                            <div class='box-body'>
-                                <div class='chart'>
-                                    <canvas id='myChart' style='height:500px'></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='col-md-6'>
-                        <div class='box box-solid box-success'>
-                            <div class='box-header with-border'>
-                                <h3 class='box-title'>Jumlah Pegawai Berdasarkan Jabatan Fungsional</h3>
                             </div>
                         </div>
                     </div>

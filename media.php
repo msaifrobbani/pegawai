@@ -19,8 +19,9 @@ include "timeout.php";
 <link rel="stylesheet" href="css/AdminLTE.min.css"></link>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<script src="assets/highcharts/code/highcharts-3d.js" type="text/javascript"></script>
+<script src="assets/highcharts/code/highcharts.js" type="text/javascript"></script>
 <script src="js/jquery-1.4.js" type="text/javascript"></script>
-
 <script src="js/superfish.js" type="text/javascript"></script>
 <script src="js/hoverIntent.js" type="text/javascript"></script>
 
@@ -34,7 +35,7 @@ include "timeout.php";
 </head>
 
     <body class="main page">
-        <div id="container">
+        <div id="container" style="color: ">
 <div id="header">
 
     <div id="gambarheader"><img src="images/HEADER1.jpg"></img></div>
@@ -78,9 +79,8 @@ include "timeout.php";
 <div id="content">
 <div class="form">
 	<?php include "data.php"; ?>  
-    <script>
-        <?php
-            include './config/koneksi.php';
+        <?php include "./config/koneksi.php"; 
+                        
             $sql        = mysql_query("SELECT COUNT(id_jab) AS jafung FROM pegawai WHERE id_jab='07.3' AND id_statkerja='1'");
             $jafung     = mysql_fetch_array($sql);
             
@@ -99,60 +99,80 @@ include "timeout.php";
             $sql5        = mysql_query("SELECT COUNT(id_jab) AS jafung FROM pegawai WHERE id_jab='07.5' AND id_statkerja='2'");
             $bebas2     = mysql_fetch_array($sql5);
             
+         
         ?>
-            var ctx = document.getElementById("myChart").getContext('2d');
-            var myChart = new Chart(ctx, {
-                type : 'bar',
-                data : {
-                    labels : ["Analis Kepeg Penyelia", "Analis Kepeg Pertama", "Analis Kepeg Muda"],
-                    datasets : [{
-                            label : 'Jumlah Pegawai Aktif',
-                            data : [
-                                <?php echo $jafung['jafung'];?>,
-                                <?php echo $jafung1['jafung'];?>,
-                                <?php echo $jafung2['jafung'];?>
-                            ],
-                            backgroundColor : [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(255, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor : [
-                                'rgba(255,99,132,1)',
-                                'rgba(255, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            borderWidth: 1
-                    },{
-                            label : 'Jumlah Pegawai Bebas Sementara',
-                            data : [
-                                <?php echo $bebas['jafung'];?>,
-                                <?php echo $bebas1['jafung'];?>,
-                                <?php echo $bebas2['jafung'];?>
-                            ],
-                            backgroundColor : [
-                                'rgba(25, 99, 132, 0.2)',
-                                'rgba(25, 89, 255, 0.2)',
-                                'rgba(25, 159, 64, 0.2)'
-                            ],
-                            borderColor : [
-                                'rgba(25, 99,132,1)',
-                                'rgba(25, 89, 255, 1)',
-                                'rgba(25, 159, 64, 1)'
-                            ],
-                            borderWidth: 1
-                    }]
+    <script>
+        $(function (){
+            var chart = new Highcharts.Chart({
+                chart:  {
+                    renderTo: 'pegawai',
+                    type:   'bar',
                 },
-                options :{
-                    scales : {
-                        yAxes : [{
-                                ticks : {
-                                    beginAtZero : true
-                                }
-                        }]
+                title:{
+                  text: 'Jumlah Pegawai Berdasarkan Jabatan Fungsional'  
+                },
+                subtitle:{
+                  text: 'Sumber: Biro Organisasi dan Tata Laksana'  
+                },
+                xAxis: {
+                    categories: ["Analis Kepeg Penyelia", "Analis Kepeg Pertama", "Analis Kepeg Muda"],
+                    title: {
+                        text: null
                     }
-                }
+                },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'pegawai',
+                                align: 'high'
+                            },
+                            labels: {
+                                overflow: 'justify'
+                            }
+                        },
+                tooltip: {
+                    valueSuffix: ' pegawai'
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            enabled: true
+                        }
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+          align: 'right',
+          verticalAlign: 'top',
+          x: -40,
+          y: 80,
+          floating: true,
+          borderWidth: 1,
+          backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+          shadow: true
+                },
+                credits:{
+                    enabled: false
+                },
+                series:[{
+                        name: 'Aktif',
+                        data: [
+                            <?php echo $jafung['jafung'];?>,
+                            <?php echo $jafung1['jafung'];?>,
+                            <?php echo $jafung2['jafung'];?>
+                        ],
+                        color: '#FFB41A',
+                },{
+                    name: 'Bebas Sementara',
+                    data: [
+                        <?php echo $bebas['jafung'];?>,
+                        <?php echo $bebas1['jafung'];?>,
+                        <?php echo $bebas2['jafung'];?>
+                    ],
+                    color: 'orchid',
+                }]
             });
+        });
     </script>
 </div>
 </div>

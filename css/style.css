@@ -27,8 +27,6 @@
 }
 
 
-
-
 body {
 	margin:0 auto;
 	padding:0;
@@ -37,8 +35,8 @@ body {
 
 
 #container {
-	max-width: 1750px;
-	min-width: 1750px;
+	max-width: 1650px;
+	min-width: 1650px;
 	margin:0 auto;
 	margin-bottom:25px;
 	background:url(../images/header.png) repeat;
@@ -48,13 +46,13 @@ body {
 	-moz-box-shadow: 0px 7px 7px #000000;
 	-webkit-box-shadow: 0px 7px 7px #000000;
 	box-shadow: 0px 7px 7px #000000;
-	margin-top: 20px;
+	margin-top: 50px;
 }
 
 #header {
 	background:url(../images/header.png) repeat;
 	text-align:center;
-	padding:20px;
+	padding:50px;
 	color:#1f4a83
 }
 
@@ -69,7 +67,7 @@ body {
 
 #menu {
 	background:#1f4a83;
-	height:55px;
+	height:50px;
 }
 
 #content {
@@ -115,10 +113,9 @@ body {
 }
 
 
-
 .nav {
 	padding-top:10px;
-	padding-left:10px;
+	padding-left:20px;
 }
 
 .nav li {
@@ -130,7 +127,7 @@ body {
 
 .nav li a {
 	background:#ffce3d;
-	padding:10px;
+	padding:20px;
 	text-decoration:none;
 	color:#000000;
 	font-size:13px;
@@ -280,8 +277,8 @@ body {
 }
 
 #wrapper {
-	max-width: 1400px;
-	min-width: 1400px;
+	max-width: 1300px;
+	min-width: 1300px;
 	margin:0 auto;
 	margin-bottom:25px;
 	-moz-border-radius: 3px;
@@ -290,7 +287,7 @@ body {
 	-moz-box-shadow: 0px 7px 7px #000000;
 	-webkit-box-shadow: 0px 7px 7px #000000;
 	box-shadow: 0px 7px 7px #000000;
-	margin-top: 20px;
+	margin-top: 50px;
 }
 
 

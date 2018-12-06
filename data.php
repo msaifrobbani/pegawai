@@ -45,7 +45,7 @@ if ($_SESSION['leveluser']=='1'){
                         
             echo "
                 <div class='row'>
-                    <div class='col-md-10' style='padding:40px; padding-left: 30px;'>
+                    <div class='col-md-10' style='padding:40px;'>
                         <div class='box box-solid box-primary'>
                             <div class='box-body'>
                                 <div class='chart'>

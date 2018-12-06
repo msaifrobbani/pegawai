@@ -16,9 +16,9 @@ include "timeout.php";
 <link rel="stylesheet" href="css/style.css" type="text/css"  />
 <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-<link rel="stylesheet" href="css/AdminLTE.min.css"></link>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
 <script src="assets/highcharts/code/highcharts-3d.js" type="text/javascript"></script>
 <script src="assets/highcharts/code/highcharts.js" type="text/javascript"></script>
 <script src="js/jquery-1.4.js" type="text/javascript"></script>

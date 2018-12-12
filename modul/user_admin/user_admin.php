@@ -45,7 +45,7 @@ switch ($_GET[act]) {
                                 <td>User ID</td><td>:</td><td><input class='input' name='userID' type='text'></td>
                             </tr>
                             <tr>
-                                <td>Password</td><td>:</td><td><input class='input' name='passID' type='text'></td>
+                                <td>Password</td><td>:</td><td><input class='input' name='passID' type='password'></td>
                             </tr>
                             <tr>
                                 <td>Level User</td><td>:</td><td><input class='input' name='levID' type='text'><span> Diisi dengan angka dari 1-3</span></td>

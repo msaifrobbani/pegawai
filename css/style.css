@@ -3,27 +3,13 @@
 
 
 @font-face {
-    font-family: 'Glyphicons Halflings';
-    src: url('font/glyphicons-halflings-regular.eot');
-	src: url('font/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-		 url('font/glyphicons-halflings-regular.woff2') format('woff2'),
-         url('font/glyphicons-halflings-regular.woff') format('woff'),
-         url('font/glyphicons-halflings-regular.ttf') format('truetype'),
-         url('font/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+    font-family: 'IstokWebRegular';
+    src: url('font/IstokWeb-Regular-webfont.eot');
+    src: url('font/IstokWeb-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/IstokWeb-Regular-webfont.woff') format('woff'),
+         url('font/IstokWeb-Regular-webfont.ttf') format('truetype'),
+         url('font/IstokWeb-Regular-webfont.svg#IstokWebRegular') format('svg');
     font-style: bold;
-
-}
-
-
-@font-face {
-    font-family: 'TendernessRegular';
-    src: url('font/Tenderness-webfont.eot');
-    src: url('font/Tenderness-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/Tenderness-webfont.woff') format('woff'),
-         url('font/Tenderness-webfont.ttf') format('truetype'),
-         url('font/Tenderness-webfont.svg#TendernessRegular') format('svg');
-    font-weight: 500;
-    font-style: normal;
 
 }
 
@@ -85,7 +71,7 @@ body {
 	padding : 20px;
 	text-align:center;
 	color:#dcdfe3 ;
-	font-family: 'Glyphicons Halflings';
+	font-family: 'IstokWebRegular';
 	font-size :12px;
 	text-decoration: underline;
 }
@@ -98,14 +84,14 @@ body {
 
 .judul {
 	font-size:34px;
-	font-family: 'TendernessRegular';
+	font-family: 'IstokWebRegular';
 	color:#dcdfe3 ;
 	padding:10px;
 }
 
 .judul2 {
 	font-size:28px;
-	font-family: 'TendernessRegular';
+	font-family: 'IstokWebRegular';
 	color:#dcdfe3 ;
 }
 
@@ -132,7 +118,7 @@ body {
 	text-decoration:none;
 	color:#000000;
 	font-size:13px;
-	font-family: 'Glyphicons Halflings';
+	font-family: 'IstokWebRegular';
 }
 
 .nav li ul {
@@ -220,13 +206,13 @@ body {
 	border-collapse:collapse;
 	border:1px solid;
 	padding:4px;
-	 font-family: 'Glyphicons Halflings';
+	 font-family: 'IstokWebRegular';
 	 font-size:13px;
 	 vertical-align:top;
 }
 
 .head {
-	font-family: 'TendernessRegular';
+	font-family: 'IstokWebRegular';
 	font-size:16px;
 	border-bottom:2px solid #1f4a83;
 	padding:5px;
@@ -237,7 +223,7 @@ body {
 }
 
 .tabelform td {
-	font-family: 'Glyphicons Halflings';
+	font-family: 'IstokWebRegular';
 	font-size:13px;
 	color:#004a80;
 }

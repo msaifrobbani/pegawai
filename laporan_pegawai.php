@@ -126,6 +126,7 @@ pegawai.id_jab=jabatan.id_jab and pegawai.id_statkerja=stat_kerja.id_statkerja a
 			</tr>	
 			</thead>";
 			$today=date('Y-m-d');
+			$n_jab = $_POST['n_jab'];
 			$tampil=mysql_query("select * from 
 			pegawai a
 			left join bagian b 

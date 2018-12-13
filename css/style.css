@@ -3,12 +3,13 @@
 
 
 @font-face {
-    font-family: 'IstokWebRegular';
-    src: url('font/IstokWeb-Regular-webfont.eot');
-    src: url('font/IstokWeb-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/IstokWeb-Regular-webfont.woff') format('woff'),
-         url('font/IstokWeb-Regular-webfont.ttf') format('truetype'),
-         url('font/IstokWeb-Regular-webfont.svg#IstokWebRegular') format('svg');
+    font-family: 'Glyphicons Halflings';
+    src: url('font/glyphicons-halflings-regular.eot');
+	src: url('font/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+		 url('font/glyphicons-halflings-regular.woff2') format('woff2'),
+         url('font/glyphicons-halflings-regular.woff') format('woff'),
+         url('font/glyphicons-halflings-regular.ttf') format('truetype'),
+         url('font/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
     font-style: bold;
 
 }
@@ -84,7 +85,7 @@ body {
 	padding : 20px;
 	text-align:center;
 	color:#dcdfe3 ;
-	font-family: 'IstokWebRegular';
+	font-family: 'Glyphicons Halflings';
 	font-size :12px;
 	text-decoration: underline;
 }
@@ -131,7 +132,7 @@ body {
 	text-decoration:none;
 	color:#000000;
 	font-size:13px;
-	font-family: 'IstokWebRegular';
+	font-family: 'Glyphicons Halflings';
 }
 
 .nav li ul {
@@ -219,13 +220,13 @@ body {
 	border-collapse:collapse;
 	border:1px solid;
 	padding:4px;
-	 font-family: 'IstokWebRegular';
+	 font-family: 'Glyphicons Halflings';
 	 font-size:13px;
 	 vertical-align:top;
 }
 
 .head {
-	font-family: 'IstokWebRegular';
+	font-family: 'TendernessRegular';
 	font-size:16px;
 	border-bottom:2px solid #1f4a83;
 	padding:5px;
@@ -236,7 +237,7 @@ body {
 }
 
 .tabelform td {
-	font-family: 'IstokWebRegular';
+	font-family: 'Glyphicons Halflings';
 	font-size:13px;
 	color:#004a80;
 }
@@ -292,7 +293,7 @@ body {
 
 
 .absensi {
-	font-family: 'arial';
+	font-family: 'Source Sans Pro';
 	font-size : 24px;
 	margin-bottom : 20px;
 	color :#1f4a83;

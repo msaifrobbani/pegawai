@@ -109,7 +109,7 @@ include "timeout.php";
                     type:   'bar',
                 },
                 title:{
-                  text: 'Jumlah Pegawai Berdasarkan Jabatan Fungsional'  
+                  text: 'Jumlah Pejabat Fungsional Non~PUPR'  
                 },
                 subtitle:{
                   text: 'Sumber: Biro Organisasi dan Tata Laksana'  

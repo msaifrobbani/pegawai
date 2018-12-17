@@ -635,8 +635,8 @@ switch($_GET[act]){
 	<table class='tabel'>
 	<thead>
 	<tr>
-	<td>Nomor PAK</td>
-	<td>Tanggal PAK</td>
+		<td>Nomor PAK</td>
+		<td>TMT Angka Kredit</td>
         <td>Angka Kredit</td>
         <td>Peringatan</td>
         <td>Control</td>
@@ -724,7 +724,7 @@ switch($_GET[act]){
 	<td>Nomor PAK</td><td>:</td><td><input class='input' name='nopak' type='text'></td>
 	</tr>
 	<tr>
-	<td>Tanggal PAK</td><td>:</td><td>
+	<td>TMT Angka Kredit</td><td>:</td><td>
         	<select name='hpak'>
                 <option value='none' selected='selected'>Tgl*</option>";
 			for($h=1; $h<=31; $h++) 
@@ -786,7 +786,7 @@ switch($_GET[act]){
 	<td>Nomor PAK</td><td>:</td><td><input class='input' name='nopak' type='text' value='$e[no_pak]'></td>
 	</tr>
 	<tr>
-	<td>Tanggal PAK</td><td>:</td><td>";
+	<td>TMT Angka Kredit</td><td>:</td><td>";
         $trak= explode("-",$e['tgl_pak']);
         $tak=$trak[0]; //tahun angka kredit;
         $bak=$trak[1]; // bulan angka kredit;

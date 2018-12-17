@@ -21,7 +21,7 @@ switch($_GET[act]){
         $p      = new Paging;
         $batas	= 15;
         $posisi	= $p->cariPosisi($batas);
-        $tampil=mysql_query("select * from jabatan order by id_jab DESC LIMIT $posisi,$batas");
+        $tampil=mysql_query("select * from jabatan order by id_jab ASC LIMIT $posisi,$batas");
   $no=$posisi+1;
   while($dt=mysql_fetch_array($tampil)){
   echo "<tr>
@@ -73,7 +73,7 @@ echo "
 	<form action='$aksi?module=jabatan&act=edit' method='post'>
 	<table class='tabelform tabpad'>
 	<tr>
-	<td>ID BAGIAN</td><td>:</td><td><input class='input' name='id' type='text' value='$data[id_jab]' disabled></td>
+	<td>ID BAGIAN</td><td>:</td><td><input class='input' name='id' type='text' value='$data[id_jab]' readonly></td>
 	</tr>
 	<tr>
 	<td>NAMA BAGIAN</td><td>:</td><td><input class='input' name='nama' type='text' value='$data[n_jab]'></td>

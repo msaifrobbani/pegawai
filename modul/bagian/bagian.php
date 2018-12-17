@@ -73,7 +73,7 @@ echo "
 	<form action='$aksi?module=bagian&act=edit' method='post'>
 	<table class='tabelform tabpad'>
 	<tr>
-	<td>ID UNIT KERJA</td><td>:</td><td><input class='input' name='id' type='text' value='$data[id_bag]' disabled></td>
+	<td>ID UNIT KERJA</td><td>:</td><td><input class='input' name='id' type='text' value='$data[id_bag]' readonly></td>
 	</tr>
 	<tr>
 	<td>NAMA UNIT KERJA</td><td>:</td><td><input class='input' name='nama' type='text' value='$data[n_bag]'></td>

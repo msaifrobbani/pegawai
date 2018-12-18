@@ -60,14 +60,12 @@ include "timeout.php";
             </ul>
         </li>
         <li><a href="?module=user_admin" class="border link linkback">Manajemen User</a></li>
-<!--        <li><a class="border link linkback" href="?module=kjb">Data Kenaikan Jabatan</a></li> -->
 	<?php } 
 	if($_SESSION['leveluser']=='1' or $_SESSION['leveluser']=='2'){
 	?>
 		<li><a class="border link linkback" href="#">Laporan</a>
         	<ul>
 			<li><a href="laporan_pegawai.php" class="li" target="_blank">Laporan Data Pegawai</a></li>
-<!--            <li><a href="laporan_kjp.php" target="_blank" class="li">Laporan Kenaikan Jabatan</a></li> -->
             </ul>
         </li>
                 <li><a class="border link linkback" href="logout.php">Logout</a></li>
@@ -105,7 +103,7 @@ include "timeout.php";
         $(function (){
             var chart = new Highcharts.Chart({
                 chart:  {
-                    renderTo: 'pegawai',
+                    renderTo: 'pegawainon',
                     type:   'bar',
                 },
                 title:{
@@ -168,6 +166,104 @@ include "timeout.php";
                         <?php echo $bebas['jafung'];?>,
                         <?php echo $bebas1['jafung'];?>,
                         <?php echo $bebas2['jafung'];?>
+                    ],
+                    color: 'orchid',
+                }]
+            });
+        });
+    </script>
+        <?php 
+        include "./config/koneksi.php"; 
+                        
+            $sql        = mysql_query("SELECT COUNT(id_jab) AS jafung FROM pegawai WHERE id_jab='07.3' AND id_statkerja='1'");
+            $aktif      = mysql_fetch_array($sql);
+            
+            $sql1       = mysql_query("SELECT COUNT(id_jab) AS jafung FROM pegawai WHERE id_jab='07.4' AND id_statkerja='1'");
+            $aktif1     = mysql_fetch_array($sql1);
+            
+            $sql2       = mysql_query("SELECT COUNT(id_jab) AS jafung FROM pegawai WHERE id_jab='07.5' AND id_statkerja='1'");
+            $aktif2     = mysql_fetch_array($sql2);
+            
+            $sql3        = mysql_query("SELECT COUNT(id_jab) AS jafung FROM pegawai WHERE id_jab='07.3' AND id_statkerja='2'");
+            $bebas3      = mysql_fetch_array($sql3);
+            
+            $sql4        = mysql_query("SELECT COUNT(id_jab) AS jafung FROM pegawai WHERE id_jab='07.4' AND id_statkerja='2'");
+            $bebas4      = mysql_fetch_array($sql4);
+            
+            $sql5        = mysql_query("SELECT COUNT(id_jab) AS jafung FROM pegawai WHERE id_jab='07.5' AND id_statkerja='2'");
+            $bebas5      = mysql_fetch_array($sql5);
+            
+         
+        ?>
+    <script>
+        $(function (){
+            var chart = new Highcharts.Chart({
+                chart:  {
+                    renderTo: 'pegawaipu',
+                    type:   'bar',
+                },
+                title:{
+                  text: 'Jumlah Pejabat Fungsional PUPR'  
+                },
+                subtitle:{
+                  text: 'Sumber: Biro Organisasi dan Tata Laksana'  
+                },
+                xAxis: {
+                    categories: ["Teknik Tata Bangunan dan Perumahan Penyelia", 
+                                "Teknik Tata Bangunan dan Perumahan Pertama", 
+                                "Teknik Tata Bangunan dan Perumahan Muda"],
+                    title: {
+                        text: null
+                    }
+                },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'pegawai',
+                                align: 'high'
+                            },
+                            labels: {
+                                overflow: 'justify'
+                            }
+                        },
+                tooltip: {
+                    valueSuffix: ' pegawai'
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            enabled: true
+                        }
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+          align: 'right',
+          verticalAlign: 'top',
+          x: -40,
+          y: 80,
+          floating: true,
+          borderWidth: 1,
+          backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+          shadow: true
+                },
+                credits:{
+                    enabled: false
+                },
+                series:[{
+                        name: 'Aktif',
+                        data: [
+                            <?php echo $aktif['jafung'];?>,
+                            <?php echo $aktif1['jafung'];?>,
+                            <?php echo $aktif2['jafung'];?>
+                        ],
+                        color: '#FFB41A',
+                },{
+                    name: 'Bebas Sementara',
+                    data: [
+                        <?php echo $bebas3['jafung'];?>,
+                        <?php echo $bebas4['jafung'];?>,
+                        <?php echo $bebas5['jafung'];?>
                     ],
                     color: 'orchid',
                 }]

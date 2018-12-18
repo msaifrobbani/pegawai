@@ -26,7 +26,7 @@ $ambil=mysql_query("select * from pegawai where nip='$_GET[id]'");
 	echo "<h2 class='head'>Data Pegawai</h2>
 	
 	<div class='foto'>";
-	if($t[foto]==""){
+	if($t['foto']==""){
 		echo "<img src='image_peg/no.jpg' width='200' height='240' />";
 	} else {
 	echo "<img src='image_peg/small_$t[foto]' width='200' height='240' />";
@@ -61,22 +61,18 @@ $ambil=mysql_query("select * from pegawai where nip='$_GET[id]'");
 	echo "</td></tr>
 	
 	<tr>
-	<td>Alamat</td><td>:</td><td>$t[alamat]</td>
-	</tr>
-	
-	<tr>
-	<td>Tanggal Masuk</td><td>:</td><td>";
-	echo "".tgl_indo($t['tgl_masuk'])."";
-	echo "
-	</td>
-	</tr>
-	
-	<tr>
 	<td>Golongan/Pangkat</td><td>:</td><td>";
 	$gol=mysql_query("select * from gol_ruang where id_gol_pangkat='$t[id_gol_pangkat]'");
 	$g=mysql_fetch_array($gol);
 	echo "$g[nm_gol_pangkat]";	
 	echo "</td>
+	</tr>
+
+	<tr>
+	<td>TMT Golongan/Pangkat</td><td>:</td><td>";
+	echo "".tgl_indo($t['tmt_gol_pangkat'])."";
+	echo "
+	</td>
 	</tr>
 
 	<tr>
@@ -110,23 +106,25 @@ $ambil=mysql_query("select * from pegawai where nip='$_GET[id]'");
 	<table class='tabel'>
 	<thead>
 	<tr>
-	<td>Nomor PAK</td>
-	<td>TMT Angka Kredit</td>
-	<td>Detail Pendidikan</td>
+		<td>Nomor PAK</td>
+		<td>TMT Angka Kredit</td>
+        <td>Angka Kredit</td>
+        <td>Batas PAK</td>
 	</tr>
 	</thead>";
-	$nip=$_SESSION['namauser'];
-	$ri=mysql_query("select * from pendidikan where nip='$_GET[id]' order by idp ASC");
+	$ri=mysql_query("select *,DATE_ADD(tgl_pak,INTERVAL 3 YEAR) as tgl_peringatan from h_ak where nip='$_GET[id]' order by idh_ak ASC");
 	if(mysql_num_rows($ri)==0){
 	echo "<tr>
-	<td colspan='2'>*Tidak Ada Data*</td>
+	<td colspan='4'>*Tidak Ada Data*</td>
 	</tr>";
 	} else {
 	while($p=mysql_fetch_array($ri)){
 	echo "
 	<tr>
-	<td>$p[t_pdk]</td>
-	<td>".nl2br($p['d_pdk'])."</td>
+	<td>$p[no_pak]</td>
+	<td>". tgl_indo($p['tgl_pak'])."</td>
+        <td>$p[angka_kredit]</td>
+        <td>". tgl_indo($p['tgl_peringatan'])."</td>
 	</tr>";
 	}
 	}
@@ -137,26 +135,36 @@ $ambil=mysql_query("select * from pegawai where nip='$_GET[id]'");
 	
 	
 	<div class='rp2'>
-	<h2 class='head'>PENGALAMAN KERJA</h2>
+	<h2 class='head'>RIWAYAT JABATAN FUNGSIONAL</h2>
 	<table class='tabel'>	
 	<thead>
 	<tr>
-	<td>Nama Pekerjaan</td>
-	<td>Detail Pekerjaan</td>
+		<td>Jabatan Fungsional</td>
+		<td>Nomor SK</td>
+		<td>Tanggal SK</td>
+		<td>TMT Jabatan</td>
+		<td>Angka Kredit</td>
 	</tr>	
 	</thead>";
-	$nip=$_SESSION['namauser'];
-	$ri=mysql_query("select * from pengalaman_kerja where nip='$_GET[id]' order by id_peker ASC");
+	$ri=mysql_query("select * from h_jabatan where nip='$_GET[id]' order by id_jbt ASC");
 	if(mysql_num_rows($ri)==0){
 	echo "<tr>
-	<td colspan='2'>*Tidak Ada Data*</td>
+	<td colspan='5'>*Tidak Ada Data*</td>
 	</tr>";
 	} else {
 	while($p=mysql_fetch_array($ri)){
 	echo "
 	<tr>
-	<td>$p[nm_pekerjaan]</td>
-	<td>".nl2br($p['d_pekerjaan'])." </td>
+	<td>";
+        $jab=mysql_query("select * from jabatan where id_jab='$p[id_jab]'");
+        $j=mysql_fetch_array($jab);
+        echo "$j[n_jab]";
+        echo "</td>
+        <td>$p[no_sk]</td>
+    	<td>". tgl_indo($p['tgl_sk'])."</td>    
+		<td>". tgl_indo($p['tmt_jab'])."</td>
+		<td>$p[jab_ak]</td>
+        
 	</tr>";
 	}
 	}

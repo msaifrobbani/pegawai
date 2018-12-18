@@ -4,14 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>LAPORAN DATA PEGAWAI</title>
 <link rel="stylesheet" href="css/print.css" type="text/css"  />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
-<style>
-@media print {
-input.noPrint { display: none; }
-}
-</style>
-
 
 <body class="body">
 <div id="wrapper">
@@ -93,7 +87,7 @@ pegawai.id_jab=jabatan.id_jab and pegawai.id_statkerja=stat_kerja.id_statkerja a
 						<td>$thn tahun/ $bln bulan</td>
 						<td>";jk($dt['jenis_kelamin']); echo "</td>
 						<td>$dt[nm_gol_pangkat]</td>
-						<td>"; echo tgl_indo($dt[tmt_gol_pangkat]); echo "</td>
+						<td>"; echo tgl_indo($dt['tmt_gol_pangkat']); echo "</td>
 						<td>$dt[n_jab]</td>
 						<td>$dt[n_bag]</td>
 						<td>$dt[n_statkerja]</td>
@@ -171,7 +165,7 @@ pegawai.id_jab=jabatan.id_jab and pegawai.id_statkerja=stat_kerja.id_statkerja a
 					<td>$thn tahun/ $bln bulan</td>
 					<td>";jk($dt['jenis_kelamin']); echo "</td>
 					<td>$dt[nm_gol_pangkat]</td>
-					<td>"; echo tgl_indo($dt[tmt_gol_pangkat]); echo "</td>
+					<td>"; echo tgl_indo($dt['tmt_gol_pangkat']); echo "</td>
 					<td>$dt[n_jab]</td>
 					<td>$dt[n_bag]</td>
 					<td>$dt[n_statkerja]</td>

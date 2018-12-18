@@ -37,6 +37,9 @@ $ambil=mysql_query("select * from pegawai where nip='$_GET[id]'");
 	<td>Nip</td><td>:</td><td>$t[nip]</td>
 	</tr>
 	<tr>
+	<td>Nip Lama</td><td>:</td><td>$t[niplama]</td>
+	</tr>
+	<tr>
 	<td>Nama Pegawai</td><td>:</td><td>$t[nama]</td>
 	</tr>
 	<tr>
@@ -69,7 +72,15 @@ $ambil=mysql_query("select * from pegawai where nip='$_GET[id]'");
 	</tr>
 	
 	<tr>
-	<td>Bagian</td><td>:</td><td>";
+	<td>Golongan/Pangkat</td><td>:</td><td>";
+	$gol=mysql_query("select * from gol_ruang where id_gol_pangkat='$t[id_gol_pangkat]'");
+	$g=mysql_fetch_array($gol);
+	echo "$g[nm_gol_pangkat]";	
+	echo "</td>
+	</tr>
+
+	<tr>
+	<td>Unit Kerja</td><td>:</td><td>";
 	$bag=mysql_query("select * from bagian where id_bag='$t[id_bag]'");
 	$b=mysql_fetch_array($bag);
 	echo "$b[n_bag]";	
@@ -83,15 +94,24 @@ $ambil=mysql_query("select * from pegawai where nip='$_GET[id]'");
 	echo "$j[n_jab]";
 	echo "</td>
 	</tr>
+
+	<tr>
+	<td>Status Kerja</td><td>:</td><td>";
+	$stat=mysql_query("select * from stat_kerja where id_statkerja='$t[id_statkerja]'");
+	$st=mysql_fetch_array($stat);
+	echo "$st[n_statkerja]";
+	echo "</td>
+	</tr>
 	
 	</table>
 	<div class='rp' >
 	<div style='clear:both'></div>
-	<h2 class='head'>Riwayat pendidikan</h2>
+	<h2 class='head'>Riwayat Angka Kredit</h2>
 	<table class='tabel'>
 	<thead>
 	<tr>
-	<td>Tahun</td>
+	<td>Nomor PAK</td>
+	<td>TMT Angka Kredit</td>
 	<td>Detail Pendidikan</td>
 	</tr>
 	</thead>";

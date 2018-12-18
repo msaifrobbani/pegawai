@@ -21,43 +21,41 @@ if($module=='pegawai' AND $act=='input' ){
   $nama_file_unik = $acak.$nama_file;
 	if (!empty($lokasi_file)){  
 	$tll="$_POST[tahun]-$_POST[bulan]-$_POST[hari]";
-	$tm="$_POST[tm]-$_POST[bm]-$_POST[hm]";
+	$tmt_golpang="$_POST[tm]-$_POST[bm]-$_POST[hm]";
 	Uploadfoto($nama_file_unik);
 	mysql_query("insert into pegawai set nip='$_POST[nip]',
-                                                                                 niplama='$_POST[niplama]',
+                                                                niplama='$_POST[niplama]',
 										 nama='$_POST[nama]',
 										 tmpt_lahir='$_POST[tls]',
 										 tgl_lahir='$tll',
 										 jenis_kelamin='$_POST[jk]',
-										 alamat='$_POST[almt]',
-										 tgl_masuk='$tm',
-                                                                                 id_gol_pangkat='$_POST[golpang]',
+																id_gol_pangkat='$_POST[golpang]',
+																tmt_gol_pangkat='$tmt_golpang',
 										 id_bag='$_POST[bagian]',
 										 id_jab='$_POST[jabatan]',
-                                                                                 pend_akhir_1='$_POST[pt1]',
-                                                                                 pend_akhir_2='$_POST[pt2]',
+                                                                pend_akhir_1='$_POST[pt1]',
+                                                                pend_akhir_2='$_POST[pt2]',
 										 foto='$nama_file_unik',
-                                                                                 id_statkerja='$_POST[statkerja]'
+                                                                id_statkerja='$_POST[statkerja]'
 										 ");
 	
 	header('location:../../media.php?module='.$module);
 	} else {
 	$tll="$_POST[tahun]-$_POST[bulan]-$_POST[hari]";
-	$tm="$_POST[tm]-$_POST[bm]-$_POST[hm]";
+	$tmt_golpang="$_POST[tm]-$_POST[bm]-$_POST[hm]";
 	mysql_query("insert into pegawai set nip='$_POST[nip]',
-                                                                                 niplama='$_POST[niplama]',
+                                                                niplama='$_POST[niplama]',
 										 nama='$_POST[nama]',
 										 tmpt_lahir='$_POST[tls]',
 										 tgl_lahir='$tll',
 										 jenis_kelamin='$_POST[jk]',
-										 alamat='$_POST[almt]',
-										 tgl_masuk='$tm',
-                                                                                 id_gol_pangkat='$_POST[golpang]',
+																id_gol_pangkat='$_POST[golpang]',
+																tmt_gol_pangkat='$tmt_golpang',
 										 id_bag='$_POST[bagian]',
 										 id_jab='$_POST[jabatan]',
-                                                                                 pend_akhir_1='$_POST[pt1]',
-                                                                                 pend_akhir_2='$_POST[pt2]',
-                                                                                 id_statkerja='$_POST[statkerja]'
+                                                                pend_akhir_1='$_POST[pt1]',
+                                                                pend_akhir_2='$_POST[pt2]',
+                                                                id_statkerja='$_POST[statkerja]'
 										 ");
 	
 	header('location:../../media.php?module='.$module);
@@ -72,39 +70,37 @@ elseif($module=='pegawai' AND $act=='edit' ){
   $nama_file_unik = $acak.$nama_file;
 	if (!empty($lokasi_file)){  
 	$tll="$_POST[tl]-$_POST[btl]-$_POST[htl]";
-	$tm="$_POST[tt]-$_POST[bt]-$_POST[ht]";
+	$tmt_golpang="$_POST[tt]-$_POST[bt]-$_POST[ht]";
 	Uploadfoto($nama_file_unik);
 	mysql_query("update pegawai set 	 nama='$_POST[nama]',
 										 tmpt_lahir='$_POST[tls]',
 										 tgl_lahir='$tll',
 										 jenis_kelamin='$_POST[jk]',
-										 alamat='$_POST[almt]',
-										 tgl_masuk='$tm',
-                                                                                 id_gol_pangkat='$_POST[golpang]',
+										 id_gol_pangkat='$_POST[golpang]',
+																tmt_gol_pangkat='$tmt_golpang',
 										 id_bag='$_POST[bagian]',
 										 id_jab='$_POST[jabatan]',
-                                                                                 pend_akhir_1='$_POST[pt1]',
-                                                                                 pend_akhir_2='$_POST[pt2]',
+                                                                pend_akhir_1='$_POST[pt1]',
+                                                                pend_akhir_2='$_POST[pt2]',
 										 foto='$nama_file_unik',
-                                                                                 id_statkerja='$_POST[statkerja]'
+                                                                id_statkerja='$_POST[statkerja]'
 										 where nip='$_POST[nip]' and niplama='$_POST[niplama]'");
 	
 	header('location:../../media.php?module=pegawai&act=detail&id='.$_POST['nip']);
 	} else {
 	$tll="$_POST[tl]-$_POST[btl]-$_POST[ttl]";
-	$tm="$_POST[tt]-$_POST[bt]-$_POST[ht]";
+	$tmt_golpang="$_POST[tt]-$_POST[bt]-$_POST[ht]";
 	mysql_query("update pegawai set 	 nama='$_POST[nama]',
 										 tmpt_lahir='$_POST[tls]',
 										 tgl_lahir='$tll',
 										 jenis_kelamin='$_POST[jk]',
-										 alamat='$_POST[almt]',
-										 tgl_masuk='$tm',
-                                                                                 id_gol_pangkat='$_POST[golpang]',
+																	id_gol_pangkat='$_POST[golpang]',
+																	tmt_gol_pangkat='$tmt_golpang',
 										 id_bag='$_POST[bagian]',
 										 id_jab='$_POST[jabatan]',
-                                                                                 pend_akhir_1='$_POST[pt1]',
-                                                                                 pend_akhir_2='$_POST[pt2]',
-                                                                                 id_statkerja='$_POST[statkerja]'
+                                                                    pend_akhir_1='$_POST[pt1]',
+                                                                    pend_akhir_2='$_POST[pt2]',
+                                                                    id_statkerja='$_POST[statkerja]'
 										 where nip='$_POST[nip]' and niplama='$_POST[niplama]'");
 	header('location:../../media.php?module=pegawai&act=detail&id='.$_POST['nip']);
 	}

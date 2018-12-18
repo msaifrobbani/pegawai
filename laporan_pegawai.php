@@ -54,7 +54,8 @@ include "config/fungsi_nip.php";
 				<td>Tanggal Lahir</td>
 				<td>Usia</td>
 				<td>Jenis Kelamin</td>
-				<td>Golongan/Ruang</td>
+				<td>Golongan/Pangkat</td>
+				<td>TMT Golongan/Pangkat</td>
 				<td>Jabatan</td>
 				<td>Unit Kerja</td>
 				<td>Status Kerja</td>
@@ -92,6 +93,7 @@ pegawai.id_jab=jabatan.id_jab and pegawai.id_statkerja=stat_kerja.id_statkerja a
 						<td>$thn tahun/ $bln bulan</td>
 						<td>";jk($dt['jenis_kelamin']); echo "</td>
 						<td>$dt[nm_gol_pangkat]</td>
+						<td>"; echo tgl_indo($dt[tmt_gol_pangkat]); echo "</td>
 						<td>$dt[n_jab]</td>
 						<td>$dt[n_bag]</td>
 						<td>$dt[n_statkerja]</td>
@@ -119,6 +121,7 @@ pegawai.id_jab=jabatan.id_jab and pegawai.id_statkerja=stat_kerja.id_statkerja a
 				<td>Usia</td>
 				<td>Jenis Kelamin</td>
 				<td>Golongan/Ruang</td>
+				<td>TMT Golongan/Pangkat</td>
 				<td>Jabatan</td>
 				<td>Unit Kerja</td>
 				<td>Status Kerja</td>
@@ -168,6 +171,7 @@ pegawai.id_jab=jabatan.id_jab and pegawai.id_statkerja=stat_kerja.id_statkerja a
 					<td>$thn tahun/ $bln bulan</td>
 					<td>";jk($dt['jenis_kelamin']); echo "</td>
 					<td>$dt[nm_gol_pangkat]</td>
+					<td>"; echo tgl_indo($dt[tmt_gol_pangkat]); echo "</td>
 					<td>$dt[n_jab]</td>
 					<td>$dt[n_bag]</td>
 					<td>$dt[n_statkerja]</td>

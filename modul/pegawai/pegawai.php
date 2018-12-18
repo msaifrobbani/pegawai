@@ -31,8 +31,8 @@ switch($_GET[act]){
             <td>Nama</td>
             <td>Tempat Lahir</td>
             <td>Tanggal Lahir</td>
-            <td>Tgl Masuk</td>
             <td>Golongan/Pangkat</td>
+            <td>TMT Pangkat</td>
             <td>Jabatan</td>
             <td>Unit Kerja</td>            
             <td>Status Kerja</td>
@@ -59,9 +59,9 @@ switch($_GET[act]){
                 <td>$dt[nip]</td>
                 <td>$dt[nama]</td>
                 <td>$dt[tmpt_lahir]</td>
-                <td>".tgl_indo($dt['tgl_lahir'])."</td>
-                <td>".tgl_indo($dt['tgl_masuk'])."</td>
-                <td>$dt[nm_gol_pangkat]</td>
+				<td>".tgl_indo($dt['tgl_lahir'])."</td>
+				<td>$dt[nm_gol_pangkat]</td>
+                <td>".tgl_indo($dt['tmt_gol_pangkat'])."</td>
                 <td>$dt[n_jab]</td>
                 <td>$dt[n_bag]</td>
                 <td>$dt[n_statkerja]</td>
@@ -96,8 +96,8 @@ switch($_GET[act]){
             <td>Nama</td>
             <td>Tempat Lahir</td>
             <td>Tanggal Lahir</td>
-            <td>Tgl Masuk</td>
             <td>Golongan/Pangkat</td>
+            <td>TMT Pangkat</td>
             <td>Jabatan</td>
             <td>Unit Kerja</td>
             <td>Status Kerja</td>
@@ -152,9 +152,9 @@ switch($_GET[act]){
                 <td>$dt[nip]</td>
                 <td>$dt[nama]</td>
                 <td>$dt[tmpt_lahir]</td>
-                <td>".tgl_indo($dt['tgl_lahir'])."</td>
-                <td>".tgl_indo($dt['tgl_masuk'])."</td>
-                <td>$dt[nm_gol_pangkat]</td>
+				<td>".tgl_indo($dt['tgl_lahir'])."</td>
+				<td>$dt[nm_gol_pangkat]</td>
+                <td>".tgl_indo($dt['tmt_gol_pangkat'])."</td>
                 <td>$dt[n_jab]</td>
                 <td>$dt[n_bag]</td>
                 <td>$dt[n_statkerja]</td>
@@ -248,13 +248,20 @@ switch($_GET[act]){
 	<tr>
 	<td>Jenis Kelamin</td><td>:</td><td><input name='jk' type='radio' value='L' />Pria <input name='jk' type='radio' value='P' />Wanita</td>
 	</tr>
-	
+
 	<tr>
-	<td>Alamat</td><td>:</td><td><textarea name='almt' ></textarea></td>
-	</tr>
-	
+        <td>Golongan/Pangkat</td><td></td><td><select name='golpang'>
+        <option value='' selected>Pilih Golongan/Pangkat</option>";
+        $gol=mysql_query("select * from gol_ruang");
+        while($g=mysql_fetch_array($gol)){
+            echo "<option value='$g[id_gol_pangkat]'>$g[nm_gol_pangkat]</option>";
+        }
+        echo "</select>
+        </td>
+        </tr>
+
 	<tr>
-	<td>Tanggal Masuk</td><td>:</td><td>
+	<td>TMT Golongan/Pangkat</td><td>:</td><td>
 	<select name='hm'>
                 <option value='none' selected='selected'>Tgl*</option>";
 			for($h=1; $h<=31; $h++) 
@@ -288,17 +295,6 @@ switch($_GET[act]){
 	echo "</select>
 	</td>
 	</tr>
-        
-	<tr>
-        <td>Golongan/Pangkat</td><td></td><td><select name='golpang'>
-        <option value='' selected>Pilih Golongan/Pangkat</option>";
-        $gol=mysql_query("select * from gol_ruang");
-        while($g=mysql_fetch_array($gol)){
-            echo "<option value='$g[id_gol_pangkat]'>$g[nm_gol_pangkat]</option>";
-        }
-        echo "</select>
-        </td>
-        </tr>
 
 	<tr>
 	<td>Unit Kerja</td><td>:</td><td><select name='bagian'>
@@ -346,7 +342,7 @@ switch($_GET[act]){
 	<option value='' selected >Pilih Status Kerja</option>";
 	$stat=mysql_query("select * from stat_kerja");
 	while($s=mysql_fetch_array($stat)){
-	echo "<option value='$s[id_statkerja]'  >$s[n_statkerja]</option>";
+	echo "<option value='$s[id_statkerja]'>$s[n_statkerja]</option>";
 	}
 	echo "</select></td>
 	</tr>
@@ -401,12 +397,22 @@ switch($_GET[act]){
 	echo "</td></tr>
 	
 	<tr>
-	<td>Alamat</td><td>:</td><td><textarea name='almt' >$t[alamat]</textarea></td>
+	<td>Golongan/Pangkat</td><td>:</td><td><select name='golpang'>
+	<option value='' selected >Pilih Golongan/Pangkat</option>";
+	$jab=mysql_query("select * from gol_ruang");
+	while($j=mysql_fetch_array($jab)){
+	if($t['id_gol_pangkat']==$j['id_gol_pangkat']){
+	echo "<option value='$j[id_gol_pangkat]' selected='$t[id_gol_pangkat]'>$j[nm_gol_pangkat]</option>";
+	} else {
+	echo "<option value='$j[id_gol_pangkat]'>$j[nm_gol_pangkat]</option>";
+	}
+	}
+	echo "</select></td>
 	</tr>
-	
+
 	<tr>
-	<td>Tanggal Masuk</td><td>:</td><td>";
-	$ta=explode("-",$t['tgl_masuk']);
+	<td>TMT Golongan/Pangkat</td><td>:</td><td>";
+	$ta=explode("-",$t['tmt_gol_pangkat']);
 	$ttm=$ta[0];
 	$btm=$ta[1];
 	$htm=$ta[2];
@@ -424,19 +430,19 @@ switch($_GET[act]){
 	</tr>
 	
 	<tr>
-	<td>Golongan/Pangkat</td><td>:</td><td><select name='golpang'>
-	<option value='' selected >Pilih Golongan/Pangkat</option>";
-	$jab=mysql_query("select * from gol_ruang");
+	<td>Jabatan</td><td>:</td><td><select name='jabatan'>	
+	<option value='' selected >Pilih Jabatan</option>";
+	$jab=mysql_query("select * from jabatan");
 	while($j=mysql_fetch_array($jab)){
-	if($t['id_gol_pangkat']==$j['id_gol_pangkat']){
-	echo "<option value='$j[id_gol_pangkat]' selected='$t[id_gol_pangkat]'>$j[nm_gol_pangkat]</option>";
+	if($t['id_jab']==$j['id_jab']){
+	echo "<option value='$j[id_jab]' selected='$t[id_jab]'  >$j[n_jab]</option>";
 	} else {
-	echo "<option value='$j[id_gol_pangkat]'>$j[nm_gol_pangkat]</option>";
+	echo "<option value='$j[id_jab]'>$j[n_jab]</option>";
 	}
 	}
 	echo "</select></td>
 	</tr>
-        
+
 	<tr>
 	<td>Bagian</td><td>:</td><td><select name='bagian'>
 	<option value='' selected >Pilih Bagian</option>";
@@ -451,20 +457,6 @@ switch($_GET[act]){
 	echo "</select></td>
 	</tr>
 	
-	<tr>
-	<td>Jabatan</td><td>:</td><td><select name='jabatan'>	
-	<option value='' selected >Pilih Jabatan</option>";
-	$jab=mysql_query("select * from jabatan");
-	while($j=mysql_fetch_array($jab)){
-	if($t['id_jab']==$j['id_jab']){
-	echo "<option value='$j[id_jab]' selected='$t[id_jab]'  >$j[n_jab]</option>";
-	} else {
-	echo "<option value='$j[id_jab]'>$j[n_jab]</option>";
-	}
-	}
-	echo "</select></td>
-	</tr>
-        
         <tr>
         <td colspan='3'>
         Dalam pengisian pendidikan, jika pendidikan tertinggi adalah S3, maka pendidikan terakhir 1 diisi dengan pendidikan terakhir
@@ -491,7 +483,7 @@ switch($_GET[act]){
 	</tr>
 	
         <tr>
-	<td>Jabatan</td><td>:</td><td><select name='statkerja'>	
+	<td>Status Kerja</td><td>:</td><td><select name='statkerja'>	
 	<option value='' selected >Pilih Status Kerja</option>";
 	$stat=mysql_query("select * from stat_kerja");
 	while($s=mysql_fetch_array($stat)){
@@ -571,37 +563,33 @@ switch($_GET[act]){
 	echo "</td></tr>
 	
 	<tr>
-	<td>Alamat</td><td>:</td><td>$t[alamat]</td>
+	<td>Golongan/Pangkat</td><td>:</td><td>";
+	$gol=mysql_query("select * from gol_ruang where id_gol_pangkat='$t[id_gol_pangkat]'");
+	$g=mysql_fetch_array($gol);
+	echo "$g[nm_gol_pangkat]";
+	echo "</td>
 	</tr>
-	
+
 	<tr>
-	<td>Tanggal Masuk</td><td>:</td><td>";
-	echo "".tgl_indo($t['tgl_masuk'])."";
+	<td>TMT Golongan/Pangkat</td><td>:</td><td>";
+	echo "".tgl_indo($t['tmt_gol_pangkat'])."";
 	echo "
 	</td>
 	</tr>
 
-        <tr>
-        <td>Golongan/Pangkat</td><td>:</td><td>";
-        $gol=mysql_query("select * from gol_ruang where id_gol_pangkat='$t[id_gol_pangkat]'");
-        $g=mysql_fetch_array($gol);
-        echo "$g[nm_gol_pangkat]";
-        echo "</td>
-        </tr>
-	
+    <tr>
+	<td>Jabatan</td><td>:</td><td>";
+	$jab=mysql_query("select * from jabatan where id_jab='$t[id_jab]'");
+	$j=mysql_fetch_array($jab);
+	echo "$j[n_jab]";
+	echo "</td>
+	</tr>
+
 	<tr>
 	<td>Unit Kerja</td><td>:</td><td>";
 	$bag=mysql_query("select * from bagian where id_bag='$t[id_bag]'");
 	$b=mysql_fetch_array($bag);
 	echo "$b[n_bag]";	
-	echo "</td>
-	</tr>
-	
-	<tr>
-	<td>Jabatan</td><td>:</td><td>";
-	$jab=mysql_query("select * from jabatan where id_jab='$t[id_jab]'");
-	$j=mysql_fetch_array($jab);
-	echo "$j[n_jab]";
 	echo "</td>
 	</tr>
 	
@@ -620,8 +608,6 @@ switch($_GET[act]){
 	echo "$s[n_statkerja]";
 	echo "</td>
 	</tr>
-        
-
             
 	<tr>
 	<td colspan='5'>[<a class='btn btn-link' href='?module=pegawai&act=edit&id=$t[nip]'> Edit Profil </a>]</td>
@@ -638,7 +624,7 @@ switch($_GET[act]){
 		<td>Nomor PAK</td>
 		<td>TMT Angka Kredit</td>
         <td>Angka Kredit</td>
-        <td>Peringatan</td>
+        <td>Batas PAK</td>
         <td>Control</td>
 	</tr>
 	</thead>";

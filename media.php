@@ -113,7 +113,19 @@ include "timeout.php";
                   text: 'Sumber: Biro Organisasi dan Tata Laksana'  
                 },
                 xAxis: {
-                    categories: ["Analis Kepeg Penyelia", "Analis Kepeg Pertama", "Analis Kepeg Muda"],
+                    categories: ["Arsiparis Pelaksana/Terampil",
+                        "Arsiparis Pelaksana Lanjutan/Mahir",
+                        "Arsiparis Penyelia",
+                        "Arsiparis Ahli Pertama",
+                        "Arsiparis Ahli Muda",
+                        "Arsiparis Ahli Madya",
+                        "Arsiparis Utama",
+                        "Analis Kepegawaian Pelaksana/Terampil",
+                        "Analis Kepegawaian Pelaksana Lanjutan/Mahir",
+                        "Analis Kepegawaian Penyelia", 
+                        "Analis Kepegawaian Pertama", 
+                        "Analis Kepegawaian Muda",
+                        "Analis Kepegawaian Madya"],
                     title: {
                         text: null
                     }
@@ -157,12 +169,32 @@ include "timeout.php";
                         data: [
                             <?php echo $jafung['jafung'];?>,
                             <?php echo $jafung1['jafung'];?>,
+                            <?php echo $jafung2['jafung'];?>,
+                            <?php echo $jafung['jafung'];?>,
+                            <?php echo $jafung1['jafung'];?>,
+                            <?php echo $jafung2['jafung'];?>,
+                            <?php echo $jafung['jafung'];?>,
+                            <?php echo $jafung1['jafung'];?>,
+                            <?php echo $jafung2['jafung'];?>,
+                            <?php echo $jafung2['jafung'];?>,
+                            <?php echo $jafung['jafung'];?>,
+                            <?php echo $jafung1['jafung'];?>,
                             <?php echo $jafung2['jafung'];?>
                         ],
                         color: '#FFB41A',
                 },{
                     name: 'Bebas Sementara',
                     data: [
+                        <?php echo $bebas['jafung'];?>,
+                        <?php echo $bebas1['jafung'];?>,
+                        <?php echo $bebas2['jafung'];?>,
+                        <?php echo $bebas['jafung'];?>,
+                        <?php echo $bebas1['jafung'];?>,
+                        <?php echo $bebas2['jafung'];?>,
+                        <?php echo $bebas['jafung'];?>,
+                        <?php echo $bebas1['jafung'];?>,
+                        <?php echo $bebas2['jafung'];?>,
+                        <?php echo $bebas2['jafung'];?>,
                         <?php echo $bebas['jafung'];?>,
                         <?php echo $bebas1['jafung'];?>,
                         <?php echo $bebas2['jafung'];?>

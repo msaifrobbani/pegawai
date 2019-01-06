@@ -26,7 +26,7 @@ if ($_SESSION['leveluser']=='1'){
 	if($_GET['module']=="home"){                        
             echo "
                 <div class='row'>
-                    <div class='col-md-10' style='padding:40px;'>
+                    <div class='col-md-12' style='padding:40px;'>
                         <div class='box box-solid box-primary'>
                             <div class='box-body'>
                                 <div class='chart'>
@@ -35,7 +35,7 @@ if ($_SESSION['leveluser']=='1'){
                             </div>
                         </div>
                     </div>
-                    <div class='col-md-10' style='padding:40px;'>
+                    <div class='col-md-12' style='padding:40px;'>
                         <div class='box box-solid box-primary'>
                             <div class='box-body'>
                                 <div class='chart'>

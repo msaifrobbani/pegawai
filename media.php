@@ -154,7 +154,7 @@ include "timeout.php";
                     layout: 'horizontal',
           align: 'right',
           verticalAlign: 'top',
-          x: 10,
+          x: 5,
           y: 20,
           floating: true,
           borderWidth: 1,

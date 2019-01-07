@@ -104,7 +104,7 @@ include "timeout.php";
             var chart = new Highcharts.Chart({
                 chart:  {
                     renderTo: 'pegawainon',
-                    type:   'bar',
+                    type:   'column',
                 },
                 title:{
                   text: 'Jumlah Pejabat Fungsional Non~PUPR'  
@@ -151,11 +151,11 @@ include "timeout.php";
                     }
                 },
                 legend: {
-                    layout: 'vertical',
+                    layout: 'horizontal',
           align: 'right',
           verticalAlign: 'top',
-          x: -40,
-          y: 80,
+          x: 10,
+          y: 20,
           floating: true,
           borderWidth: 1,
           backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
@@ -232,7 +232,7 @@ include "timeout.php";
             var chart = new Highcharts.Chart({
                 chart:  {
                     renderTo: 'pegawaipu',
-                    type:   'bar',
+                    type:   'column',
                 },
                 title:{
                   text: 'Jumlah Pejabat Fungsional PUPR'  
